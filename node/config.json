@@ -1,5 +1,5 @@
 {
-  "HOST" : "http://localhost",
-  "PORT" : "7777",
-  "GAME_UUID" : "683a67b8-09ec-40a0-90b5-f05f56c643a3"
+    "HOST": "http://localhost",
+    "PORT": "7777",
+    "GAME_UUID": "a3b9bf0e-58b2-4e55-a3cc-534ca827f272"
 }
