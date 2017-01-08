@@ -19,18 +19,17 @@ function play(map, cb) {
     // here is you playing codes
     // for example, this is a simple random choose in `xo` game
 
-    console.log(map);
+    console.log(` => map : ${map}`);
 
     let choose = Math.floor(Math.random() * 9);
 
     while (map[choose] != 0) {
+
         // create a random choose
         choose = Math.floor(Math.random() * 9);
-
-        // console.log(map[choose]);
     }
 
-    console.log(`choose -> ${choose}`);
+    console.log(` <= [choose] -> ${choose}`);
 
 
     // NOTE you have limited time to play

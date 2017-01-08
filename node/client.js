@@ -19,6 +19,7 @@ console.log('\n GAME_UUID => ' + GAME_UUID);
 console.log(' GAMER_UUID => ' + GAMER_UUID + '\n');
 
 console.log(' connecting...');
+console.log('');
 
 socket.on('connect', function(io) {
 
@@ -36,12 +37,12 @@ socket.on('connect', function(io) {
     });
 
     socket.on('start', function() {
-        console.log(' => [starting...]');
+        console.log(' *=> [starting...] wait to call you!');
     });
 
     socket.on('turn', function(map) {
 
-        console.log(` => [my turn] ${new Date()}`);
+        console.log(` => [your turn] ${new Date()}`);
 
         // play the game
         play_logic(map, function(choose) {
@@ -53,6 +54,16 @@ socket.on('connect', function(io) {
             socket.emit('choose', choose);
         })
 
+    });
+
+    socket.on('end', function(info) {
+        if (info.winner) {
+            console.log(` *=> [end] -> winner :${info.winner}`);
+            // console.log(` *=> [end] -> map :${info.map}`);
+        } else {
+            console.log(` *=> [end] -> tie!`);
+            // console.log(` *=> [end] -> map :${info.map}`);
+        }
     });
 
     socket.on('info', function(info) {
