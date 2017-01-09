@@ -8,7 +8,7 @@ const HOST = config.HOST;
 const PORT = config.PORT;
 const GAME_UUID = config.GAME_UUID;
 
-const play_logic = require('./play');
+const team_game = require('./team');
 
 const GAMER_UUID = '18cfc1f6-9bb1-4747-8f67-9491612b3d14';
 
@@ -45,7 +45,7 @@ socket.on('connect', function(io) {
         console.log(` => [your turn] ${new Date()}`);
 
         // play the game
-        play_logic(map, function(choose) {
+        team_game.play(map, function(choose) {
 
             if (typeof choose == 'undefined') {
                 return console.error(` = [err] low args , calling the callback without params`);
